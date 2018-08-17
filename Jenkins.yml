@@ -6,7 +6,7 @@ imageStreamNodejsVersion: 10
 removeSourcePackageLock: true
 
 installedDependencies:
-  showGlobalInstalledDependencies: true
+  showGlobalInstalledDependencies: false
   showGlobalInstalledDependenciesDepthLimit: true
   showGlobalInstalledDependenciesDepth: 0
   showLocalInstalledDependencies: true
