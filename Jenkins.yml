@@ -6,7 +6,7 @@ imageStreamNodejsVersion: 8
 removeSourcePackageLock: true
 
 angularCli:
-  installGloballyAngularCli: true
+  installGloballyAngularCli: false
   installAngularCliSpecificVersion: false
   angularCliVersion: 1.0.5
 
