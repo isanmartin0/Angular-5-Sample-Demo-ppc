@@ -7,8 +7,8 @@ removeSourcePackageLock: true
 
 installedDependencies:
   showGlobalInstalledDependencies: true
-  showGlobalInstalledDependenciesDepthLimit: false
-  showGlobalInstalledDependenciesDepth: 1
+  showGlobalInstalledDependenciesDepthLimit: true
+  showGlobalInstalledDependenciesDepth: 0
   showLocalInstalledDependencies: true
   showLocalInstalledDependenciesDepthLimit: true
   showLocalInstalledDependenciesDepth: 0
