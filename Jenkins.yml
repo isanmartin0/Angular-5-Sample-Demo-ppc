@@ -1,14 +1,14 @@
 openshift:
   templatePath: kube/nginx_template.yaml
 
-imageStreamNodejsVersion: 8
+imageStreamNodejsVersion: 10
 
 removeSourcePackageLock: true
 
 angularCli:
-  installGloballyAngularCli: false
-  installAngularCliSpecificVersion: false
-  angularCliVersion: 1.0.5
+  installGloballyAngularCli: true
+  installAngularCliSpecificVersion: true
+  angularCliVersion: 6.1.2
 
 nginxVersion: '1.12'
 
@@ -20,7 +20,7 @@ environmentVariables:
   environmentVariable1: value1
 
 npmRegistryPublish:
-  - release
+  # - release
 
 confirmDeploy:
   - master
