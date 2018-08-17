@@ -6,13 +6,13 @@ imageStreamNodejsVersion: 10
 removeSourcePackageLock: true
 
 installedDependencies:
-  showGlobalInstalledDependencies: false
+  showGlobalInstalledDependencies: true
   showGlobalInstalledDependenciesDepthLimit: true
-  showGlobalInstalledDependenciesDepth: 0
+  showGlobalInstalledDependenciesDepth: 1
   showLocalInstalledDependencies: true
   showLocalInstalledDependenciesDepthLimit: true
-  showLocalInstalledDependenciesDepth: 0
-  showLocalInstalledDependenciesOnlyType: true
+  showLocalInstalledDependenciesDepth: 2
+  showLocalInstalledDependenciesOnlyType: false
   showLocalInstalledDependenciesType: dev
 
 angularCli:
