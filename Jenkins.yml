@@ -1,7 +1,7 @@
 openshift:
   templatePath: kube/nginx_template.yaml
 
-imageStreamNodejsVersion: 10
+imageStreamNodejsVersion: 8
 
 removeSourcePackageLock: true
 
@@ -18,7 +18,7 @@ installedDependencies:
 angularCli:
   installGloballyAngularCli: true
   installAngularCliSpecificVersion: true
-  angularCliVersion: 6.1.2
+  angularCliVersion: 1.4.0
 
 nginxVersion: '1.12'
 
