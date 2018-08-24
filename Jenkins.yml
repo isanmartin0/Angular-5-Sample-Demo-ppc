@@ -3,36 +3,36 @@ openshift:
 
 imageStreamNodejsVersion: 8
 
+angularCli:
+  installGloballyAngularCli: false
+  installAngularCliSpecificVersion: false
+  angularCliVersion: 1.7.4
+
 removeSourcePackageLock: true
 
 showInstalledDependencies:
   showGlobalInstalledDependencies: true
-  showGlobalInstalledDependenciesDepthLimit: true
+  showGlobalInstalledDependenciesDepthLimit: false
   showGlobalInstalledDependenciesDepth: 1
   showLocalInstalledDependencies: true
-  showLocalInstalledDependenciesDepthLimit: true
-  showLocalInstalledDependenciesDepth: 2
+  showLocalInstalledDependenciesDepthLimit: false
+  showLocalInstalledDependenciesDepth: 0
   showLocalInstalledDependenciesOnlyType: false
-  showLocalInstalledDependenciesType: dev
-
-angularCli:
-  installGloballyAngularCli: false
-  installAngularCliSpecificVersion: true
-  angularCliVersion: 1.4.0
-
-nginxVersion: '1.12'
+  showLocalInstalledDependenciesType: prod
 
 ngBuildProd:
-  useBuildProdFlags: true
+  useBuildProdFlags: false
   buildProdFlags:  --aot=false
   useSpecificOutputPath: false
-  buildSpecificOutputPath: /dist
+  buildSpecificOutputPath: dist/
 
 environmentVariables:
-  environmentVariable1: value1
+  # environmentVariable1: value1
 
 npmRegistryPublish:
   # - release
+
+nginxVersion: '1.12'
 
 confirmDeploy:
   - master
@@ -43,18 +43,56 @@ timeoutConfirmDeployUnit: MINUTES
 
 testing:
   predeploy:
-    unitTesting:
-      - feature
-      - develop
-      - release
-      - hotfix
-    sonarQube:
+    useLintingFlags: false
+    lintingFlags: --format json --force true
+    linting:
       - feature
       - develop
       - release
       - hotfix
 
+    useUnitTestingFlags: false
+    unitTestingFlags: --browsers ChromeHeadless --watch=false --code-coverage
+    useUnitTestingKarmaConfigurationFileSpecificPath: false
+    unitTestingKarmaConfigurationFileSpecificPath: /
+    unitTesting:
+      - feature
+      - develop
+      - release
+      - hotfix
+
+    useE2ETestingFlags: false
+    e2eTestingFlags:
+    useE2ETestingProtractorConfigurationFileSpecificPath: false
+    e2eTestingProtractorConfigurationFileSpecificPath: /
+    e2eTesting:
+      - feature
+      - develop
+      - release
+      - hotfix
+
+    useKarmaSonarQubeReporterSpecificVersion: false
+    karmaSonarQubeReporterSpecificVersion: 1.2.0
+    sonarQube:
+      - feature
+      - develop
+      - release
+      - hotfix
+    sonarQubeAnalisis:
+      sonarSources: src
+      sonarExclusions: "**/node_modules/**,**/*.spec.ts"
+      sonarTests: src
+      sonarTestInclusions: "**/*.spec.ts"
+      sonarTSTSLintConfigPath: tslint.json
+      sonarTypescriptExclusions: "**/node_modules/**,**/typings.d.ts,**/main.ts,**/environments/environment*.ts,**/*routing.module.ts"
+      sonarTestExecutionReportPath: reports/test-report.xml
+      sonarCoverageReportPath: coverage/lcov.info
+
+
   postdeploy:
+    timeoutConfirmPostDeployTests: true
+    timeoutConfirmPostDeployTestsTime: 30
+    timeoutConfirmPostDeployTestsUnit: MINUTES
     smokeTesting:
       # - release
       # - master
